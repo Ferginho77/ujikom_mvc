@@ -1,5 +1,5 @@
 <?php require_once'../../assets/layouts/navbar.php';
-session_start()
+session_start();
 ?>
 
 <div class="container">
@@ -9,7 +9,7 @@ session_start()
                 <div class="col-sm-4 bg-info rounded-left">
                     <div class="card-block text-center text-white">
                     <i class="far fa-user mt-5"></i>
-                    <h4>Nama Anda</h4>
+                    <h4><?= $_SESSION['data']['NamaLengkap']?></h4>
                             <img
             src="../../assets/img/Default_pfp.svg.png"
             alt="LOGO"

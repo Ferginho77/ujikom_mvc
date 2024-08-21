@@ -1,5 +1,5 @@
 <?php require_once'../../assets/layouts/navbar.php';
-session_start()
+session_start();
 ?>
  <a class="btn text-white bg-danger" href="profile.php">Kembali</a>
      

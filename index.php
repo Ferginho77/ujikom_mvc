@@ -34,7 +34,7 @@ session_start();
         
             <div class="bottom">
                 <p>Belum punya akun?
-                    <a href="register.php">Register disini</a>
+                    <a href="../app/views/register.php">Register disini</a>
                 </p>
             </div>
         </form>

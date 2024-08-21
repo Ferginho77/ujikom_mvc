@@ -1,18 +1,21 @@
-<?php require_once'../../assets/layouts/navbar.php'?>
+<?php require_once'../../assets/layouts/navbar.php';
+require_once '../models/m_album.php';
+$album = new Album();
+?>
 <div class= "container">
     <div class= "row">
         <div class="col-5">
             <div class="card">
                 <div class="card-body">
                     <h4>halaman upload</h4>
-                    <form action="./controllers/c_foto.php?aksi=tambah" method="post" enctype="multipart/form-data">
+                    <form action="../controllers/c_foto.php?aksi=tambah" method="post" enctype="multipart/form-data">
+                    <input type="text" name="FotoId" id="FotoId" hidden>
+                    <input type="text" name="UserId" id="UserId" value="<?= $UserId ?>" hidden>
+                    <input type="text" name="AlbumId" id="AlbumId" value="<?= $AlbumId ?>" hidden>
+                    <input type="text" name="TanggalUnggah" id="TanggalUnggah" value="<?= $TanggalUnggah ?>" hidden>
                         <div class="form-group">
                             <label>Judul Foto</label>
                             <input type="text" class="form-control" name="JudulFoto">
-                        </div>
-                        <div class="form-group">
-                            <label>Tanggal Unggah Foto</label>
-                            <input type="date" class="form-control" name="TanggalUnggah">
                         </div>
                         <div class="form-group">
                             <label>Deskripsi Foto</label>
@@ -23,7 +26,13 @@
                             <input type="file" name="LokasiFile" class="form-control"  >
                             <small class="text-danger">file harus berupa: *.jpg *.png</small>
                         </div>
-                        <input type="submit" value="uploads" name="uploads" class="btn btn-danger my-3">
+                        <div class="form-group">
+                            <label>Pilih Album Foto</label>
+                            <select name="AlbumId" class="form-select">
+                           
+                            </select>
+                        </div>
+                        <button type="submit" name="tambah" class="btn-input btn btn-outline-info mt-3 ">Tambah Foto</button>
                     </form>
 
                 </div>

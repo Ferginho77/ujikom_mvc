@@ -10,14 +10,25 @@ if (isset($_POST['tambah'])) {
     if ($_GET['aksi'] == 'tambah') {
         $JudulFoto = $_POST['JudulFoto'];
         $DeskripsiFoto = $_POST['DeskripsiFoto'];
-        $TanggalUnggah = $_POST['TanggalUnggah'];
-        $AlbumId = $_POST['AlbumId'];
+        $TanggalUnggah = date("Y-m-d");
+        $AlbumId = $_SESSION['data']['AlbumId'];
+        $UserId = $_SESSION['data']['UserId'];
+        $LokasiFile = $_FILES['LokasiFile']['name'];
         
-        $LokasiFile = $_FILES['LokasiFile'];
-        
+        $can = array('jpg', 'png', 'jpeg');
+        $x = explode('.', $LokasiFile);
+        $ekstensi = strtolower(end($x));
+        $tmp = $_FILES['Lokasifile']['tmp_name'];
+
+    if (in_array($ekstensi, $can) == true) {
+        move_uploaded_file($tmp, '../../assets/img/' . $LokasiFile);
         $foto->TambahFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId);
-        
-    }   
+        echo "<script>alert('Data Berhasil Ditambah');window.location='../views/home.php'</script>";
+    }else {
+        echo "<script>alert('Data gagal Ditambahkan');window.location='../views/uploads.php'</script>";
+    }
+    
+}  
 }
             
         if ($_GET['aksi'] == 'update') {
