@@ -9,8 +9,13 @@ class Album {
         $sql = "INSERT INTO album VALUES (NULL, '$NamaAlbum', '$Deskripsi', '$TanggalDibuat', '$UserId')";
             
         $result = mysqli_query($conn->koneksi, $sql);
-        return $result;
+
+        $hasil = "SELECT * FROM album WHERE NamaAlbum  = '$NamaAlbum'";
+        $album = mysqli_query($conn->koneksi, $hasil);
+        $cekk = mysqli_fetch_assoc($album);
+
         if ($result) {
+            $_SESSION["album"] = $cekk;
             echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/album.php'</script>";
         } else {
             echo "<script>alert('Data Gagal Ditambah');window.location='../views/album.php'</script>";

@@ -5,13 +5,11 @@ include_once '../models/m_foto.php';
 $foto = new Foto();
 
 if (isset($_POST['tambah'])) {
-    
-
     if ($_GET['aksi'] == 'tambah') {
         $JudulFoto = $_POST['JudulFoto'];
         $DeskripsiFoto = $_POST['DeskripsiFoto'];
         $TanggalUnggah = date("Y-m-d");
-        $AlbumId = $_SESSION['data']['AlbumId'];
+        $AlbumId = $_SESSION['album']['AlbumId'];
         $UserId = $_SESSION['data']['UserId'];
         $LokasiFile = $_FILES['LokasiFile']['name'];
         
@@ -19,7 +17,7 @@ if (isset($_POST['tambah'])) {
         $x = explode('.', $LokasiFile);
         $ekstensi = strtolower(end($x));
         $tmp = $_FILES['Lokasifile']['tmp_name'];
-
+        
     if (in_array($ekstensi, $can) == true) {
         move_uploaded_file($tmp, '../../assets/img/' . $LokasiFile);
         $foto->TambahFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId);
