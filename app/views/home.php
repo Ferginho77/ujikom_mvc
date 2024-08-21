@@ -1,34 +1,50 @@
 <?php
-session_start();
-// require_once '../models/m_user.php';
-// require_once '../controllers/conn.php';
+require_once'../../assets/layouts/navbar.php';
 
+require_once '../models/m_foto.php';
+// require_once '../controllers/conn.php';
+$tampil = new Foto();
 ?>
 
-
-<?php require_once'../../assets/layouts/navbar.php'?>
-<main class="mt-3">
 <h1> Selamat Datang <?= $_SESSION['data']['Username'] ?></h1>
-<section>
-    
-    <div class="card">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        <main class="mt-3">
+
+            <section>
+                <?php 
+                $fotos = $tampil->tampil_foto();
+                if (empty($fotos)) {
+                    echo "<h2>Tidak Ada Postingan</h2>";
+                } else {
+                    foreach ($fotos as $x) : 
+                ?>  
+    <div class="card mt-2">
+                    
+        <div class="card-header">
+            <h6>Postingan dari <?= $x->Username ?></h6>
+        </div>
         <div class="card-body">
             <div class="row tm-mb-90 tm-gallery">
+            <div class="row tm-mb-90 tm-gallery">
+            
+            </div>
+               
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                            <figure class="effect-ming tm-video-item">
-                                <img src="../../assets/img/Default_pfp.svg.png" alt="Image" class="img-fluid" width="225px" height="250px" >
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <a href="photo-detail.php">Lihat Detail Foto</a>
-                                </figcaption>                    
-                            </figure>
-                            <div class="d-flex justify-content-between tm-text-gray">
-                                
-                                <span>9,906 views</span>
-                            </div>
-                        </div>
+                <img src="../../assets/img/<?= $x->LokasiFile ?>" width="280px" height="350px" alt="foto">
+                        <h3><?= $x->JudulFoto ?></h3>
+                        <p><?= $x->DeskripsiFoto ?></p>
+                </div>
+                        
                 </div>
         </div>
     </div>
-    
+    <?php endforeach;?>
+    <?php }?>
 </section>
 </main>
+        </div>
+    </div>
+</div>
+

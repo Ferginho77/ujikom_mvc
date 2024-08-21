@@ -16,12 +16,12 @@ if (isset($_POST['tambah'])) {
         $can = array('jpg', 'png', 'jpeg');
         $x = explode('.', $LokasiFile);
         $ekstensi = strtolower(end($x));
-        $tmp = $_FILES['Lokasifile']['tmp_name'];
+        $tmp = $_FILES['LokasiFile']['tmp_name'];
         
     if (in_array($ekstensi, $can) == true) {
         move_uploaded_file($tmp, '../../assets/img/' . $LokasiFile);
         $foto->TambahFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId);
-        echo "<script>alert('Data Berhasil Ditambah');window.location='../views/home.php'</script>";
+        // echo "<script>alert('Data Berhasil Ditambah');window.location='../views/home.php'</script>";
     }else {
         echo "<script>alert('Data gagal Ditambahkan');window.location='../views/uploads.php'</script>";
     }
@@ -43,11 +43,6 @@ if (isset($_POST['tambah'])) {
             $FotoId = $_GET['fotoId'];
             $result = $foto->hapus($FotoId);
     
-            if ($result) {
-                echo "<script>alert('Data Berhasil Dihapus');window.location='../views/tampil_data.php'</script>";
-            } else {
-                echo "<script>alert('Data Gagal Dihapus');window.location='../views/tampil_data.php'</script>";
-            }
         }
     }
 

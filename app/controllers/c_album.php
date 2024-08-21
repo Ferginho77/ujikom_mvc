@@ -14,12 +14,6 @@ try{
             $UserId = $_SESSION['data']['UserId'];
            
             $album->TambahAlbum($NamaAlbum, $Deskripsi, $TanggalDibuat, $UserId);
-            
-            if ($album) {
-                echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/album.php'</script>";
-            } else {
-                echo "<script>alert('Data Gagal Ditambah');window.location='../views/album.php'</script>";
-            }
         }
        
     }  

@@ -27,6 +27,7 @@ class Album {
 
 		$conn = new database();
 		$data = mysqli_query($conn->koneksi, "SELECT * FROM album ORDER BY AlbumId desc ");
+        $hasil = [];
 		while ($d = mysqli_fetch_object($data)) {
 			$hasil[] = $d;
 		}
