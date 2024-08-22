@@ -10,28 +10,17 @@ $komentar = new komentar();
 $tampillike = new like();
 ?>
 
-<h1> Selamat Datang <?= $_SESSION['data']['Username'] ?></h1>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-        <main class="mt-3">
-
-            <section>
-                <?php 
-                $fotos = $tampil->tampil_foto();
-                if (empty($fotos)) {
+<section>  <?php 
+                $fotos = $tampil->select($FotoId);
+                if(empty($fotos)) {
                     echo "<h2>Tidak Ada Postingan</h2>";
                 } else {
-                    foreach ($fotos as $x) : 
+                    foreach ($fotos as $x) :  
                 ?>  
     <div class="card mt-2">
                     
-        <div class="card-header">
-            <h6>Postingan dari <?= $x->Username ?></h6>
-           
-
-        </div>
+        
         <div class="card-body">
             <div class="row tm-mb-90 tm-gallery">
             <div class="row tm-mb-90 tm-gallery">
@@ -58,8 +47,3 @@ $tampillike = new like();
     <?php endforeach;?>
     <?php }?>
 </section>
-</main>
-        </div>
-    </div>
-</div>
-

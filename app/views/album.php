@@ -51,6 +51,7 @@ $tampil = new Album();
                                <td>
                                <a href="edit_album.php?AlbumId=<?= $x->AlbumId; ?>&aksi=edit"><button type="button" class="btn btn-round btn-primary">Edit</button></a>
                                <a onclick="return confirm('Apakah yakin data akan di hapus?')" href="../controllers/c_album.php?AlbumId=<?= $x->AlbumId ?>&aksi=hapus"><button type="button" name="hapus" class="btn btn-round btn-danger">Hapus</button></a>
+                               <a href="selectfoto.php" class="btn btn-outline-info">Pilih</a>
                                </td>
                                </a>
                                

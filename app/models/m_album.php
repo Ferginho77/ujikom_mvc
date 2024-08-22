@@ -1,6 +1,6 @@
 <?php
 include_once '../controllers/conn.php';
-session_start();
+
 
 
 class Album {

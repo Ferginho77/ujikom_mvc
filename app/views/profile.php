@@ -1,5 +1,5 @@
 <?php require_once'../../assets/layouts/navbar.php';
-session_start();
+require_once '../controllers/conn.php';
 ?>
 
 <div class="container">

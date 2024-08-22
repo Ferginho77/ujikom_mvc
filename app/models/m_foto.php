@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include_once '../controllers/conn.php';
  
 class Foto {
@@ -10,8 +10,8 @@ class Foto {
      $result = mysqli_query($conn->koneksi, $sql);
 
      $hasil = "SELECT * FROM foto WHERE JudulFoto  = '$JudulFoto'";
-     $album = mysqli_query($conn->koneksi, $hasil);
-     $cekk = mysqli_fetch_assoc($album);
+     $query = mysqli_query($conn->koneksi, $hasil);
+     $cekk = mysqli_fetch_assoc($query);
 
      if ($result) {
         $_SESSION["foto"] = $cekk;
@@ -30,7 +30,7 @@ class Foto {
         if ($result) {
 
             // echo "data tidak gagal ditambahkan";
-            echo "<script>alert('Foto Berhasil Ditambahkan');window.location='../views/home.php'</script>";
+            echo "<script>alert('Foto Berhasil Di Edit');window.location='../views/home.php'</script>";
 
         } else {
 
@@ -53,5 +53,15 @@ class Foto {
 		}
 		return $hasil;
    }
-
+   public function select($FotoID)
+   {
+       $conn = new database();
+       $query = mysqli_query($conn->koneksi, "SELECT foto.*, user.* FROM foto INNER JOIN user ON foto.UserID = user.UserID WHERE FotoID = $FotoID");
+       while ($row = mysqli_fetch_object($query)) {
+           $rows[] = $row;
+       }
+       return $rows;
+      
+   }
+  
 }
