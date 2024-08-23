@@ -12,9 +12,9 @@ $tampillike = new like();
 
 
 <section>  <?php 
-                $fotos = $tampil->select($FotoId);
+                $fotos = $tampil->select($_SESSION['foto']['FotoId']);
                 if(empty($fotos)) {
-                    echo "<h2>Tidak Ada Postingan</h2>";
+                    echo "<h2>Tidak Ada Foto Yang Di Upload</h2>";
                 } else {
                     foreach ($fotos as $x) :  
                 ?>  
@@ -32,13 +32,9 @@ $tampillike = new like();
                         <h3><?= $x->JudulFoto ?></h3>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <p><?= $x->DeskripsiFoto ?></p>
-                            <h6 class="text-secondary"> Like |<?= $tampilike->jumlah($x->FotoID) ?></h6>
                          </div>
-                        <?php if ($tampillike->user($x->FotoID, $id) == 0) {?>
-                            <a href="../controllers/c_like.php?FotoId=<? $x->FotoID?>&UserId<?= $id?>&aksi=like">Like</a>
-                            <?php } else { ?>
-                    <a href="../controllers/c_like.php?UserId=<?= $id ?>&aksi=delete"><i class="text-secondary bx bxs-like"></i> Unlike</a>
-                <?php } ?>
+                      <a  href="edit_foto.php" class="btn btn-warning" >Edit</a>
+                      <a onclick="return confirm('Apakah Yakin Akan hapus?')" href="../controllers/c_foto.php?aksi=hapus" class="btn btn-danger" >Hapus</a>
                 </div>   
                 </div>
                

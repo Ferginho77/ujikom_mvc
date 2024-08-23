@@ -27,22 +27,24 @@ if (isset($_POST['tambah'])) {
     }
     
 }  
-}
-            
-        if ($_GET['aksi'] == 'update') {
+} 
+if ($_GET['aksi'] == 'update') {
+            $FotoId = $_POST['FotoId'];
             $JudulFoto = $_POST['JudulFoto'];
             $DeskripsiFoto = $_POST['DeskripsiFoto'];
-            $TanggalUnggah = $_POST['TanggalUnggah'];
-            $LokasiFile = $_FILES['LokasiFile'];
-            $AlbumId = $_POST['AlbumId'];
-            $foto->UpdateFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId);
+            $AlbumId = $_SESSION['album']['AlbumId'];
+            $UserId = $_SESSION['data']['UserId'];
+            $foto->UpdateFoto($JudulFoto, $DeskripsiFoto, $AlbumId, $UserId);
             }
            
-    else {
-        if ($_GET['aksi'] == 'hapus') {
-            $FotoId = $_GET['fotoId'];
+    elseif ($_GET['aksi'] == 'hapus') {
+            $FotoId = $_SESSION['foto']['FotoId'];
             $result = $foto->hapus($FotoId);
-    
+            if ($result) {
+                echo "<script>alert('Data Berhasil Dihapus');window.location='../views/home.php'</script>";
+            } else {
+                echo "<script>alert('Data Gagal Dihapus');window.location='../views/album.php'</script>";
+            }
         }
-    }
+    
 

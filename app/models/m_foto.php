@@ -22,19 +22,15 @@ class Foto {
 
     }
 
-    public function UpdateFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId){
+    public function UpdateFoto($JudulFoto, $DeskripsiFoto, $AlbumId, $UserId){
         $conn = new database();
-        $sql = "UPDATE foto SET JudulFoto='$JudulFoto', DeskripsiFoto='$DeskripsiFoto', TanggalUnggah='$TanggalUnggah', LokasiFile='$LokasiFile', AlbumId='$AlbumId', UserId='$UserId'";
+        $sql = "UPDATE foto SET JudulFoto='$JudulFoto', DeskripsiFoto='$DeskripsiFoto',  AlbumId='$AlbumId', UserId='$UserId'";
 
         $result = mysqli_query($conn->koneksi, $sql);
         if ($result) {
-
-            // echo "data tidak gagal ditambahkan";
-            echo "<script>alert('Foto Berhasil Di Edit');window.location='../views/home.php'</script>";
-
+            echo "<script>alert('Data Berhasil Di Edit');window.location='../views/home.php'</script>";
         } else {
-
-            echo "Foto gagal ditambahkan";
+            echo "<script>alert('Data Gagal Dihapus');window.location='../views/album.php'</script>";
         }
     }
   public function hapus($FotoId)
@@ -53,14 +49,15 @@ class Foto {
 		}
 		return $hasil;
    }
-   public function select($FotoID)
+   public function select($id)
    {
        $conn = new database();
-       $query = mysqli_query($conn->koneksi, "SELECT foto.*, user.* FROM foto INNER JOIN user ON foto.UserID = user.UserID WHERE FotoID = $FotoID");
+       $query = mysqli_query($conn->koneksi, "SELECT foto.*, user.* FROM foto INNER JOIN user ON foto.UserId = user.UserId WHERE FotoId = $id");
+       $hasil = [];
        while ($row = mysqli_fetch_object($query)) {
-           $rows[] = $row;
+           $hasil[] = $row;
        }
-       return $rows;
+       return $hasil;
       
    }
   

@@ -43,12 +43,12 @@ $tampillike = new like();
                         <h3><?= $x->JudulFoto ?></h3>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <p><?= $x->DeskripsiFoto ?></p>
-                            <h6 class="text-secondary"> Like |<?= $tampilike->jumlah($x->FotoID) ?></h6>
+                            <h6 class="text-secondary"> Like |<?= $tampillike->jumlah($x->FotoId) ?></h6>
                          </div>
-                        <?php if ($tampillike->user($x->FotoID, $id) == 0) {?>
-                            <a href="../controllers/c_like.php?FotoId=<? $x->FotoID?>&UserId<?= $id?>&aksi=like">Like</a>
+                        <?php if ($tampillike->user($x->FotoId, $_SESSION['data']['UserId']) == 0) {?>
+                            <a href="../controllers/c_like.php?FotoId=<? $x->FotoId?>&UserId<?= $_SESSION['data']['UserId']?>&aksi=like">Like</a>
                             <?php } else { ?>
-                    <a href="../controllers/c_like.php?UserId=<?= $id ?>&aksi=delete"><i class="text-secondary bx bxs-like"></i> Unlike</a>
+                    <a href="../controllers/c_like.php?UserId=<?= $_SESSION['data']['UserId'] ?>&aksi=delete"><i class="text-secondary bx bxs-like"></i> Unlike</a>
                 <?php } ?>
                 </div>   
                 </div>
