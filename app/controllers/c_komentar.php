@@ -8,7 +8,6 @@ if(isset($_POST['tambah'])){
     $UserId = $_SESSION['data']['UserId'];
     $IsiKomentar = $_POST['IsiKomentar'];
     $TanggalKomentar = date("Y-m-d");
-
     $komentar->insert_komen($FotoId, $UserId, $IsiKomentar, $TanggalKomentar);
 }elseif ($_GET['aksi'] == 'hapus') {
     $id = $_GET['KomentarID'];

@@ -41,17 +41,30 @@ $tampillike = new like();
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <img src="../../assets/img/<?= $x->LokasiFile ?>" width="280px" height="350px" alt="foto">
                         <h3><?= $x->JudulFoto ?></h3>
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <div class="align-items-center justify-content-evenly ">
                             <p><?= $x->DeskripsiFoto ?></p>
-                            <h6 class="text-secondary"> Like |<?= $tampillike->jumlah($x->FotoId) ?></h6>
-                         </div>
-                        <?php if ($tampillike->user($x->FotoId, $_SESSION['data']['UserId']) == 0) {?>
-                            <a href="../controllers/c_like.php?FotoId=<? $x->FotoId?>&UserId<?= $_SESSION['data']['UserId']?>&aksi=like">Like</a>
+                            <h6 class="text-secondary"> Like |<?= $tampillike->jumlah($x->FotoId) ?></h6> 
+                            <?php if ($tampillike->user($x->FotoId, $_SESSION['data']['UserId']) == 0) {?>
+                            <a class="fs-2" href="../controllers/c_like.php?FotoId=<? $x->FotoId?>&UserId<?= $_SESSION['data']['UserId']?>&aksi=like"><i class="far fa-heart text-danger"></i></a>
                             <?php } else { ?>
-                    <a href="../controllers/c_like.php?UserId=<?= $_SESSION['data']['UserId'] ?>&aksi=delete"><i class="text-secondary bx bxs-like"></i> Unlike</a>
-                <?php } ?>
+                            <a class="fs-2" href="../controllers/c_like.php?UserId=<?= $_SESSION['data']['UserId'] ?>&aksi=delete"><i class="fas fa-heart text-danger"></i></a>
+                             <?php } 
+                             if (empty($komentar->read_komentar(($x->FotoId)))){
+                                echo "";
+                             }else {  ?>
+                             <?php foreach ($komentar->read_komentar(($x->FotoId)) as $komen) :?>
+                                <div class="card mt-2">
+                                    <div class="card-header">
+                                        <h6><?= $komen->Username ?></h6>
+                                    </div>
+                                    <p><?= $komen->$_SESSION['komen']['IsiKomentar'];
+                                    ?></p>
+                                </div>
+                         </div>
+                         <?php endforeach; ?>
+                        <?php }?>
                 </div>   
-                </div>
+            </div>
                
         </div>
     </div>
