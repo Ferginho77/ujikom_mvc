@@ -3,28 +3,25 @@ require_once'../../assets/layouts/navbar.php';
 
 require_once '../models/m_foto.php';
 require_once '../models/m_like.php';
-require_once '../models/m_komentar.php';
+require_once '../models/m_album.php';
 // require_once '../controllers/conn.php';
 $tampil = new Foto();
-$komentar = new komentar();
+$album = new Album();
 $tampillike = new like();
 ?>
 
 
 <section>  <?php 
-                $fotos = $tampil->select($_SESSION['foto']['FotoId']);
-                if(empty($fotos)) {
+              
+                if(empty($tampil->read($_SESSION['data']['UserId']))) {
                     echo "<h2>Tidak Ada Foto Yang Di Upload</h2>";
                 } else {
-                    foreach ($fotos as $x) :  
                 ?>  
     <div class="card mt-2">
-                    
-        
+        <?php  foreach ($tampil->read($_SESSION['data']['UserId'])as $x ) :  ?>
         <div class="card-body">
             <div class="row tm-mb-90 tm-gallery">
             <div class="row tm-mb-90 tm-gallery">
-            
             </div>
                
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
@@ -33,7 +30,7 @@ $tampillike = new like();
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <p><?= $x->DeskripsiFoto ?></p>
                          </div>
-                      <a  href="edit_foto.php" class="btn btn-warning" >Edit</a>
+                      <a  href="edit_foto.php?<?= $x->FotoId; ?>&AlbumId=<?= $x->AlbumId; ?>" class="btn btn-warning">Edit</a>
                       <a onclick="return confirm('Apakah Yakin Akan hapus?')" href="../controllers/c_foto.php?aksi=hapus" class="btn btn-danger" >Hapus</a>
                 </div>   
                 </div>

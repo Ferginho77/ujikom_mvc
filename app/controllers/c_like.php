@@ -11,8 +11,9 @@ if ($_GET['aksi'] == 'like') {
     $like->suka($foto, $user, $TanggalLike);
     header("Location: ../views/home.php");
 } elseif ($_GET['aksi'] == 'delete') {
-    $id = $_SESSION['data']['UserId'];
+    $UserId = $_SESSION['data']['UserId'];
+    $FotoId = $_SESSION['foto']['FotoId'];
 
-    $like->unlike($id);
+    $like->unlike($FotoId, $UserId);
     header("Location: ../views/home.php");
 }

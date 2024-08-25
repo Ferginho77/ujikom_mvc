@@ -19,6 +19,7 @@
         <a class="nav-link active" href="../../app/views/home.php">Home</a>
         <a class="nav-link active" href="../../app/views/album.php">AlbumKu</a>
         <a class="nav-link active" href="../../app/views/uploads.php">Uploads</a>
+        <a class="nav-link active" href="../../app/views/selectfoto.php">Foto</a>
         <a class="nav-link active" href="../../app/views/profile.php">Profile</a>
         <a onclick="return confirm('Apakah Yakin Akan Logout?')" class="btn btn-outline-danger" href="../../app/controllers/c_user.php?aksi=logout">Logout</a>
       </div>

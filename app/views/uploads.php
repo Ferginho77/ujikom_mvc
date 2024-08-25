@@ -29,9 +29,9 @@ $tampil = new Album();
                         <div class="form-group">
                             <label>Pilih Album Foto</label>
                             <select name="AlbumId" class="form-select">
-                            <?php foreach ($tampil->tampil_data() as $x) : ?>
+                            <?php foreach (($tampil->read_album($_SESSION['data']['UserId'])) as $x) : ?>
                                 <option value="<?= $x->AlbumId ?>"><?= $x->NamaAlbum ?></option>
-                            <?php endforeach ?>
+                            <?php endforeach; ?>
                             </select>
                         </div>
                         <button type="submit" name="tambah" class="btn-input btn btn-outline-info mt-3 ">Tambah Foto</button>

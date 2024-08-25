@@ -33,16 +33,26 @@ class Album {
 		}
 		return $hasil;
 	}
-    function tampil_data_id($id)
+    function update($id)
 	{
 		$conn = new database();
 		$query = mysqli_query($conn->koneksi, "SELECT * FROM album WHERE AlbumId = $id");
-		while ($row = mysqli_fetch_object($query)) {
-			$hasil[] = $row;
+		$hasil = [];
+		while ($d = mysqli_fetch_object($query)) {
+			$hasil[] = $d;
 		}
-
 		return $hasil;
 	}
+    public function read_album($UserId){
+        $conn = new database();
+		$query = mysqli_query($conn->koneksi, "SELECT * FROM album WHERE UserId = $UserId");
+		$hasil = [];
+		while ($d = mysqli_fetch_object($query)) {
+			$hasil[] = $d;
+		}
+		return $hasil;
+    }
+    
     public function EditAlbum($AlbumId, $NamaAlbum, $Deskripsi, $TanggalDibuat, $UserId){
         $conn = new database();
         $sql = "UPDATE album SET NamaAlbum='$NamaAlbum', Deskripsi='$Deskripsi', TanggalDibuat='$TanggalDibuat', UserId='$UserId' WHERE AlbumId = '$AlbumId'";

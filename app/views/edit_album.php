@@ -14,7 +14,7 @@ $album = new Album();
                 <div class="card-body">
                     <form action="../controllers/c_album.php?aksi=edit" class="p-2" method="post">
                           <?php 
-                         foreach ($album->tampil_data_id($_GET['AlbumId']) as $album) :  ?>
+                         foreach ($album->update($_GET['AlbumId']) as $album) :  ?>
                     
                     <input type="text" name="AlbumId" value="<?= $album->AlbumId?>" hidden>
                         <div class="form-group">

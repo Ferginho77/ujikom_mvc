@@ -8,11 +8,11 @@ class Foto {
      $sql = "INSERT INTO foto VALUES (NULL, '$JudulFoto', '$DeskripsiFoto', '$TanggalUnggah', '$LokasiFile',  '$AlbumId', '$UserId')";
 
      $result = mysqli_query($conn->koneksi, $sql);
-
+        
      $hasil = "SELECT * FROM foto WHERE JudulFoto  = '$JudulFoto'";
      $query = mysqli_query($conn->koneksi, $hasil);
      $cekk = mysqli_fetch_assoc($query);
-
+     
      if ($result) {
         $_SESSION["foto"] = $cekk;
         echo "<script>alert('foto Berhasil Ditambahkan');window.location='../views/home.php'</script>";
@@ -42,7 +42,7 @@ class Foto {
 	}
    public function tampil_foto(){
     $conn = new database();
-		$data = mysqli_query($conn->koneksi, "SELECT foto.*, user.* FROM foto INNER JOIN user ON foto.UserID = user.UserID ORDER BY FotoID DESC");
+		$data = mysqli_query($conn->koneksi, "SELECT * FROM foto INNER JOIN user ON foto.UserId=user.UserId");
         $hasil = [];
 		while ($d = mysqli_fetch_object($data)) {
 			$hasil[] = $d;
@@ -52,13 +52,23 @@ class Foto {
    public function select($id)
    {
        $conn = new database();
-       $query = mysqli_query($conn->koneksi, "SELECT foto.*, user.* FROM foto INNER JOIN user ON foto.UserId = user.UserId WHERE FotoId = $id");
+       $query = mysqli_query($conn->koneksi, "SELECT * FROM foto WHERE FotoId = $id");
        $hasil = [];
        while ($row = mysqli_fetch_object($query)) {
            $hasil[] = $row;
        }
        return $hasil;
       
+   }
+
+   public function read($id){
+    $conn = new database();
+    $query = mysqli_query($conn->koneksi, "SELECT * FROM foto WHERE UserId = $id");
+    $hasil = [];
+       while ($row = mysqli_fetch_object($query)) {
+           $hasil[] = $row;
+       }
+       return $hasil;
    }
   
 }

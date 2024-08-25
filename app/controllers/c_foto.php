@@ -9,7 +9,7 @@ if (isset($_POST['tambah'])) {
         $JudulFoto = $_POST['JudulFoto'];
         $DeskripsiFoto = $_POST['DeskripsiFoto'];
         $TanggalUnggah = date("Y-m-d");
-        $AlbumId = $_SESSION['album']['AlbumId'];
+        $AlbumId = $_POST['AlbumId'];
         $UserId = $_SESSION['data']['UserId'];
         $LokasiFile = $_FILES['LokasiFile']['name'];
         
