@@ -11,6 +11,8 @@ if(isset($_POST['tambah'])){
     $TanggalKomentar = date("Y-m-d");
    
     $komentar->insert_komen($FotoId, $UserId, $IsiKomentar, $TanggalKomentar);
+    var_dump($_POST);
+    exit;
     }
 }elseif ($_GET['aksi'] == 'hapus') {
     $id = $_GET['KomentarId'];

@@ -16,13 +16,7 @@ $login = new c_login();
                     $Alamat = $_POST['Alamat'];
                         //memanggil method register
                         $login->register($Username, $Password, $Email, $NamaLengkap, $Alamat);
-                        
-                        $login->isUsernameExists($Username);
-                        if ($login) {
-                            echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/login.php'</script>";
-                        } else {
-                            echo "<script>alert('Data Gagal Ditambah');window.location='../views/tampil_data.php'</script>";
-                        }
+                    
                     }
 
             }
