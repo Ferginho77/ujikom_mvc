@@ -32,7 +32,7 @@ if ($_GET['aksi'] == 'update') {
             $FotoId = $_POST['FotoId'];
             $JudulFoto = $_POST['JudulFoto'];
             $DeskripsiFoto = $_POST['DeskripsiFoto'];
-            $AlbumId = $_SESSION['album']['AlbumId'];
+            $AlbumId = $_POST['AlbumId'];
             $UserId = $_SESSION['data']['UserId'];
             $foto->UpdateFoto($JudulFoto, $DeskripsiFoto, $AlbumId, $UserId);
             }

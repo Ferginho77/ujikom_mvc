@@ -6,18 +6,13 @@ require_once '../controllers/conn.php';
     <div class="row d-flex justify-content-center">
         <div class="col-md-10 mt-5 pt-5">
             <div class="row z-depth-3">
-                <div class="col-sm-4 bg-info rounded-left">
+                <div class="col-sm-4 bg-info rounded-left position-relative">
                     <div class="card-block text-center text-white">
-                    <i class="far fa-user mt-5"></i>
+                    
                     <h4><?= $_SESSION['data']['NamaLengkap']?></h4>
-                            <img
-            src="../../assets/img/Default_pfp.svg.png"
-            alt="LOGO"
-            width="200"
-            class="rounded-circle mt-5 mb-1"
-        />
+                    <i class="far fa-user mt-5 fs-1 position-absolute top-50 start-50 translate-middle"></i>
                     </div>
-                    <a class="btn text-white bg-warning" href="edit_prof.php?id=<?= $_SESSION['data']['UserId']?>">Edit Profile</a>
+                    <a class="btn text-white bg-warning position-absolute top-100 start-50 translate-middle" href="edit_prof.php?id=<?= $_SESSION['data']['UserId']?>">Edit Profile</a>
                 </div>
                 <div class="col-sm-8 bg-white rounded-right">
                     <h3 class="mt-3 text-center"> Profil Anda</h3>

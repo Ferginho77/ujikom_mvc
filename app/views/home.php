@@ -47,11 +47,12 @@ $tampillike = new like();
                             <p><?= $x->DeskripsiFoto ?></p>
                             
                             <h6 class="text-secondary"> Like |<?= $tampillike->jumlah($x->FotoId) ?></h6> 
-                            <?php if ($tampillike->user($x->FotoId, $_SESSION['data']['UserId']) == 0) {?>
-                            <a class="fs-2" href="../controllers/c_like.php?FotoId=<? $x->FotoId ?>&UserId<?= $x->UserId?>&aksi=like"><i class="far fa-heart text-danger"></i></a>
+                            <?php if ($tampillike->user($x->FotoId, $x->UserId) > 0) { ?>
+                                <a class="fs-2" href="../controllers/c_like.php?FotoId=<?= $x->FotoId ?>&UserId=<?= $x->UserId ?>&aksi=delete"><i class="fas fa-heart text-danger"></i></a>
                             <?php } else { ?>
-                            <a class="fs-2" href="../controllers/c_like.php?UserId=<?= $x->UserId ?>&aksi=delete"><i class="fas fa-heart text-danger"></i></a>
-                             <?php } 
+                                <a class="fs-2" href="../controllers/c_like.php?FotoId=<?= $x->FotoId ?>&UserId=<?= $x->UserId ?>&aksi=like"><i class="far fa-heart text-danger"></i></a>
+                            <?php } 
+
                              if (empty($komentar->read_komentar(($x->FotoId)))){
                                 echo "";
                              }else {  ?>
@@ -75,7 +76,7 @@ $tampillike = new like();
                         <input type="text" name="IsiKomentar" class="form-control" placeholder="Beri Komentar" style="width: 200px;" required>
                         <input type="hidden" name="Userid" value="<?= $x->UserId ?>" >
                         <input type="hidden" name="FotoId" value="<?= $x->FotoId ?>" >
-                        <button class="btn btn-outline-info" type="submit" name="tambah">Kirim</button>
+                        <button class="btn btn-outline-info" type="submit" name="tambah"><i class="fab fa-telegram-plane"></i></button>
                             </div>
                        
                         </form>
