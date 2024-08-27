@@ -24,9 +24,7 @@ class c_login{
                         echo "<script>alert('Data Gagal Ditambah');window.location='../views/register.php'</script>";
                     }
             }
-        }
-
-        
+        }  
     }
 
 
