@@ -72,12 +72,12 @@ $tampillike = new like();
                          <?php endforeach; ?>
                         <?php }?>
                         <form class="row g-3 mt-3" action="../controllers/c_komentar.php?aksi=tambah" method="post">
-                            <div class="d-flex flex-row mb-3">
-                        <input type="text" name="IsiKomentar" class="form-control" placeholder="Beri Komentar" style="width: 200px;" required>
-                        <input type="hidden" name="Userid" value="<?= $x->UserId ?>" >
-                        <input type="hidden" name="FotoId" value="<?= $x->FotoId ?>" >
-                        <button class="btn btn-outline-info" type="submit" name="tambah"><i class="fab fa-telegram-plane"></i></button>
-                            </div>
+                        <div class="d-flex flex-row mb-3">
+                            <input type="text" name="IsiKomentar" class="form-control" placeholder="Beri Komentar" style="width: 200px;" required>
+                            <input type="hidden" name="Userid" value="<?= $x->UserId ?>" >
+                            <input type="hidden" name="FotoId" value="<?= $x->FotoId ?>" >
+                            <button class="btn btn-outline-info" type="submit" name="tambah"><i class="fab fa-telegram-plane"></i></button>
+                        </div>
                        
                         </form>
                 </div>   

@@ -32,13 +32,13 @@ if ($_GET['aksi'] == 'update') {
             $FotoId = $_POST['FotoId'];
             $JudulFoto = $_POST['JudulFoto'];
             $DeskripsiFoto = $_POST['DeskripsiFoto'];
-            $AlbumId = $_POST['AlbumId'];
+            $AlbumId = $_GET['AlbumId'];
             $UserId = $_SESSION['data']['UserId'];
             $foto->UpdateFoto($JudulFoto, $DeskripsiFoto, $AlbumId, $UserId);
             }
            
     elseif ($_GET['aksi'] == 'hapus') {
-            $FotoId = $_SESSION['foto']['FotoId'];
+            $FotoId = $_GET['FotoId'];
             $result = $foto->hapus($FotoId);
             if ($result) {
                 echo "<script>alert('Data Berhasil Dihapus');window.location='../views/home.php'</script>";

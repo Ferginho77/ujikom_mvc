@@ -4,8 +4,8 @@ require_once'../models/m_like.php';
 $like = new like();
 
 if (isset($_GET['aksi'])) {
-    $user = $_SESSION['data']['UserId'];
-    $foto = $_SESSION['foto']['FotoId'];
+    $user = $_GET['UserId'];
+    $foto = $_GET['FotoId'];
     $aksi = $_GET['aksi'];
 
     if ($aksi == 'like') {
