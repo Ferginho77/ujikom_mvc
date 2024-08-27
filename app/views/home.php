@@ -61,13 +61,10 @@ $tampillike = new like();
                                 ?>
                                 <div class="alert alert-dark alert-dismissible fade show w-100 m-0" col-lg-12 role="alert">
                                     <div class="d-flex flex-row mb-0">
-                                    <h6 style="margin-left: 2%; "><?= $x->Username ?></h6>
+                                    <h6 style="margin-left: 2%; "><?= $komen->Username ?></h6>
                                     <p style="margin-left: 30%; "><?= $komen->IsiKomentar; ?>
-                                    
                                     </div>
-                                
                                 </div>
-                                
                          </div>
                          <?php endforeach; ?>
                         <?php }?>

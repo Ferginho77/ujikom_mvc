@@ -30,8 +30,8 @@ $tampillike = new like();
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <p><?= $x->DeskripsiFoto ?></p>
                          </div>
-                      <a  href="edit_foto.php?<?= $x->FotoId; ?>&AlbumId=<?= $x->AlbumId; ?>" class="btn btn-warning"><i class="far fa-edit"></i></a>
-                      <a onclick="return confirm('Apakah Yakin Akan hapus?')" href="../controllers/c_foto.php?aksi=hapus" class="btn btn-danger" ><i class="far fa-trash-alt"></i></a>
+                      <a  href="edit_foto.php?FotoId=<?= $x->FotoId; ?>&AlbumId=<?= $x->AlbumId ?>" class="btn btn-warning"><i class="far fa-edit"></i></a>
+                      <a onclick="return confirm('Apakah Yakin Akan hapus?')" href="../controllers/c_foto.php?FotoId=<?= $x->FotoId; ?>&aksi=hapus" class="btn btn-danger" ><i class="far fa-trash-alt"></i></a>
                 </div>   
                 </div>
                

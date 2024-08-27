@@ -22,11 +22,12 @@ class Foto {
 
     }
 
-    public function UpdateFoto($JudulFoto, $DeskripsiFoto, $AlbumId, $UserId){
+    public function UpdateFoto($FotoId, $JudulFoto, $DeskripsiFoto, $AlbumId, $UserId){
         $conn = new database();
-        $sql = "UPDATE foto SET JudulFoto='$JudulFoto', DeskripsiFoto='$DeskripsiFoto',  AlbumId='$AlbumId', UserId='$UserId'";
-
+        $sql = "UPDATE foto SET JudulFoto='$JudulFoto', DeskripsiFoto='$DeskripsiFoto',  AlbumId='$AlbumId', UserId='$UserId' WHERE FotoId = $FotoId";
+       
         $result = mysqli_query($conn->koneksi, $sql);
+       
         if ($result) {
             echo "<script>alert('Data Berhasil Di Edit');window.location='../views/home.php'</script>";
         } else {

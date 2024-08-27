@@ -5,7 +5,7 @@ $komentar = new komentar();
 
 if(isset($_POST['tambah'])){
     if(isset($_GET['aksi']) && $_GET['aksi'] == 'tambah'){
-    $FotoId = $_GET['FotoId'];
+    $FotoId = $_POST['FotoId'];
     $UserId = $_SESSION['data']['UserId'];
     $IsiKomentar = $_POST['IsiKomentar'];
     $TanggalKomentar = date("Y-m-d");
