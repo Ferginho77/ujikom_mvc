@@ -16,4 +16,5 @@ if(isset($_POST['tambah'])){
     $id = $_GET['KomentarId'];
 
     $komentar->delete($id);
+    header("Location: ../views/home.php");
 }

@@ -14,7 +14,7 @@
   style="background-color: #000000"
 >
   <div class="container">
-    <a class="navbar-brand" href="#section_1">Socify</a>
+    <a class="navbar-brand" href="#section_1">SOCIALIX</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto">
         <a class="nav-link active" href="../../app/views/home.php">Home</a>

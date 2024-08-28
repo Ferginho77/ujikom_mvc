@@ -63,6 +63,7 @@ $tampillike = new like();
                          </div>
                          <div class="d-flex p-2 alert alert-dark alert-dismissible fade show w-100 mt-2"  role="alert">
                                     <div class="d-flex flex-column">
+                                        <a onclick="return confirm('Apakah Yakin Akan hapus?')"   href="../controllers/c_komentar.php?KomentarId=<?= $komen->KomentarId ?>&aksi=hapus"><i class="fas fa-times"></i></a>
                                     <h6 style="margin-left: 0%; display: inline-block;"><?= $komen->Username ?></h6>
                                     <p style="margin-left: 0 %; display: inline-block; "><?= $komen->IsiKomentar; ?>
                                     </div>
