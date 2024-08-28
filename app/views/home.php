@@ -59,13 +59,14 @@ $tampillike = new like();
                              <?php foreach ($komentar->read_komentar(($x->FotoId )) as $komen) :
                                 
                                 ?>
-                                <div class="alert alert-dark alert-dismissible fade show w-100 m-0" col-lg-12 role="alert">
-                                    <div class="d-flex flex-row mb-0">
-                                    <h6 style="margin-left: 2%; "><?= $komen->Username ?></h6>
-                                    <p style="margin-left: 30%; "><?= $komen->IsiKomentar; ?>
+                                
+                         </div>
+                         <div class="d-flex p-2 alert alert-dark alert-dismissible fade show w-100 mt-2"  role="alert">
+                                    <div class="d-flex flex-column">
+                                    <h6 style="margin-left: 0%; display: inline-block;"><?= $komen->Username ?></h6>
+                                    <p style="margin-left: 0 %; display: inline-block; "><?= $komen->IsiKomentar; ?>
                                     </div>
                                 </div>
-                         </div>
                          <?php endforeach; ?>
                         <?php }?>
                         <form class="row g-3 mt-3" action="../controllers/c_komentar.php?aksi=tambah" method="post">
@@ -89,4 +90,13 @@ $tampillike = new like();
         </div>
     </div>
 </div>
+<script>
+    function adjustColumnWidth() {
+    const input = document.getElementById('textInput');
+    const column = input.parentElement;
+
+    // Mengatur lebar kolom agar sesuai dengan teks yang diinput
+    column.style.width = input.value.length + 'ch';
+}
+</script>
 

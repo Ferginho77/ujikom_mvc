@@ -15,9 +15,7 @@ class komentar {
        
         if ($result) {
             $_SESSION["komen"] = $cekk;
-            echo "<script>alert('Berhasil Berkomentar');window.location='../views/home.php'</script>";
-        }else{
-            echo "<script>alert('Gagal Berkomentar');window.location='../views/home.php'</script>";
+            header("Location: ../views/home.php");
         }
     }
     public function read_komentar($foto)
