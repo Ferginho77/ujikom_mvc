@@ -32,9 +32,9 @@ class komentar {
         return $hasil;
     }
     
-    public function delete($id) {
+    public function delete($id, $user) {
         $conn = new database();
-        $query = mysqli_query($conn->koneksi, "DELETE FROM komentarfoto WHERE KomentarId = $id");
+        $query = mysqli_query($conn->koneksi, "DELETE FROM komentarfoto WHERE KomentarId = $id AND UserId = $user");
     }
 
 }

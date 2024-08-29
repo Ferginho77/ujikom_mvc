@@ -14,7 +14,8 @@ if(isset($_POST['tambah'])){
     }
 }elseif ($_GET['aksi'] == 'hapus') {
     $id = $_GET['KomentarId'];
+    $user = $_SESSION['data']['UserId'];
 
-    $komentar->delete($id);
+    $komentar->delete($id, $user);
     header("Location: ../views/home.php");
 }

@@ -34,7 +34,6 @@ $tampillike = new like();
                       <a onclick="return confirm('Apakah Yakin Akan hapus?')" href="../controllers/c_foto.php?FotoId=<?= $x->FotoId; ?>&aksi=hapus" class="btn btn-danger" ><i class="far fa-trash-alt"></i></a>
                 </div>   
                 </div>
-               
         </div>
     </div>
     <?php endforeach;?>

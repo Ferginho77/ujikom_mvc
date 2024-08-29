@@ -12,12 +12,10 @@ $tampillike = new like();
 ?>
 
 <h1> Selamat Datang <?= $_SESSION['data']['Username'] ?></h1>
-
 <div class="container">
     <div class="row">
         <div class="col-md-6">
         <main class="mt-3">
-
             <section>
                 <?php 
                 $fotos = $tampil->tampil_foto();
@@ -26,19 +24,15 @@ $tampillike = new like();
                 } else {
                     foreach ($fotos as $x) : 
                 ?>  
-    <div class="card mt-2">
-                    
+    <div class="card mt-2">      
         <div class="card-header ">
             <h6>Postingan dari <?= $x->Username ?></h6>
            <h6 class="position-absolute top-0 end-0"><?= $x->TanggalUnggah ?></h6>
-
         </div>
         <div class="card-body">
             <div class="row tm-mb-90 tm-gallery">
             <div class="row tm-mb-90 tm-gallery">
-            
             </div>
-               
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <img src="../../assets/img/<?= $x->LokasiFile ?>" width="280px" height="350px" alt="foto">
                         <h3><?= $x->JudulFoto ?></h3>
@@ -57,13 +51,12 @@ $tampillike = new like();
                                 echo "";
                              }else {  ?>
                              <?php foreach ($komentar->read_komentar(($x->FotoId )) as $komen) :
-                                
-                                ?>
-                                
+                                ?> 
                          </div>
                          <div class="d-flex p-2 alert alert-dark alert-dismissible fade show w-100 mt-2"  role="alert">
+                            
                                     <div class="d-flex flex-column">
-                                        <a onclick="return confirm('Apakah Yakin Akan hapus?')"   href="../controllers/c_komentar.php?KomentarId=<?= $komen->KomentarId ?>&aksi=hapus"><i class="fas fa-times"></i></a>
+                                        <a onclick="return confirm('Apakah Yakin Akan hapus?')"   href="../controllers/c_komentar.php?KomentarId=<?= $komen->KomentarId ?>&UserId<?= $komen->UserId ?>&aksi=hapus"><i class="fas fa-times text-dark"></i></a>
                                     <h6 style="margin-left: 0%; display: inline-block;"><?= $komen->Username ?></h6>
                                     <p style="margin-left: 0 %; display: inline-block; "><?= $komen->IsiKomentar; ?>
                                     </div>
@@ -77,11 +70,9 @@ $tampillike = new like();
                             <input type="hidden" name="FotoId" value="<?= $x->FotoId ?>" >
                             <button class="btn btn-outline-info" type="submit" name="tambah"><i class="fab fa-telegram-plane"></i></button>
                         </div>
-                       
                         </form>
                 </div>   
             </div>
-               
         </div>
     </div>
     <?php endforeach;?>
