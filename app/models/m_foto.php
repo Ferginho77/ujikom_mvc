@@ -29,7 +29,7 @@ class Foto {
         $result = mysqli_query($conn->koneksi, $sql);
        
         if ($result) {
-            echo "<script>alert('Data Berhasil Di Edit');window.location='../views/home.php'</script>";
+            echo "<script>alert('Data Berhasil Di Edit');window.location='../views/selectfoto.php'</script>";
         } else {
             echo "<script>alert('Data Gagal Dihapus');window.location='../views/album.php'</script>";
         }

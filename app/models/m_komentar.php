@@ -21,17 +21,23 @@ class komentar {
     public function read_komentar($foto)
     {
         $conn = new database();
-        $data = mysqli_query($conn->koneksi, "SELECT * FROM komentarfoto INNER JOIN user ON komentarfoto.UserId =user.UserId INNER JOIN foto ON komentarfoto.FotoId=foto.FotoId WHERE komentarfoto.FotoId = '$foto'");
+        $data = mysqli_query($conn->koneksi, "SELECT komentarfoto.*, user.* FROM komentarfoto INNER JOIN user ON 
+        komentarfoto.UserID = user.UserID WHERE FotoID = $foto");
        
         $hasil = [];
         while ($d = mysqli_fetch_object($data)) {
-            $hasil[] = $d;
-            
+            $hasil[] = $d;   
         }
-        
         return $hasil;
     }
-    
+    public function jumlah($id) {
+        $conn = new database();
+        $query = mysqli_query($conn->koneksi, "SELECT * FROM komentarfoto WHERE FotoId = $id");
+        $data = mysqli_num_rows($query);
+        
+        return $data;
+    }
+
     public function delete($id, $user) {
         $conn = new database();
         $query = mysqli_query($conn->koneksi, "DELETE FROM komentarfoto WHERE KomentarId = $id AND UserId = $user");
