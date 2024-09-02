@@ -4,7 +4,6 @@ require_once '../models/m_album.php';
 $conn = new database();
 $tampil = new Album();
 ?>
-
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -14,7 +13,6 @@ $tampil = new Album();
                     </div>
                   <div class="card-body">
                     <form action="../controllers/c_album.php?aksi=album" method="POST">
-                        
                         <label for="">Nama Album</label>
                         <input type="text" name="NamaAlbum" class="form-control" required>
                         <label for="">Deskripsi</label>
@@ -24,7 +22,6 @@ $tampil = new Album();
                     </form>
                   </div>  
             </div>
-
         </div>
         <div class="col-md-8">
             <div class="card mt-2">
@@ -46,21 +43,21 @@ $tampil = new Album();
                         }
                         else{
                         ?>
-                        
+
                         <tbody>
-                        <?php foreach ($tampil->read_album($_SESSION['data']['UserId']) as $x) : ?>
-                            <tr>
-                               <td><?= $x->NamaAlbum ?></td>
-                               <td><?= $x->Deskripsi ?></td>
-                               <td><?= $x->TanggalDibuat ?></td>
-                               <td>
-                               <a href="edit_album.php?AlbumId=<?= $x->AlbumId; ?>&aksi=edit"><button type="button" class="btn btn-round btn-primary">Edit</button></a>
-                               <a onclick="return confirm('Apakah yakin data akan di hapus?')" href="../controllers/c_album.php?AlbumId=<?= $x->AlbumId ?>&aksi=hapus"><button type="button" name="hapus" class="btn btn-round btn-danger">Hapus</button></a>
-                              <a class="btn btn-outline-info" href="dalbum.php?AlbumId=<?= $x->AlbumId ?>">Pilih</a>
-                               </td>
-                            </tr>
-                            <?php endforeach ?>
-                         <?php }?>   
+                            <?php foreach ($tampil->read_album($_SESSION['data']['UserId']) as $x) : ?>
+                                <tr>
+                                    <td><?= $x->NamaAlbum ?></td>
+                                    <td><?= $x->Deskripsi ?></td>
+                                    <td><?= $x->TanggalDibuat ?></td>
+                                    <td>
+                                    <a href="edit_album.php?AlbumId=<?= $x->AlbumId; ?>&aksi=edit"><button type="button" class="btn btn-round btn-primary"><i class="far fa-edit"></i></button></a>
+                                    <a onclick="return confirm('Apakah yakin data akan di hapus?')" href="../controllers/c_album.php?AlbumId=<?= $x->AlbumId ?>&aksi=hapus"><button type="button" name="hapus" class="btn btn-round btn-danger"><i class="far fa-trash-alt"></i></button></a>
+                                    <a class="btn btn-outline-info" href="dalbum.php?AlbumId=<?= $x->AlbumId ?>"><i class="fas fa-folder-open"></i></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach ?>
+                            <?php }?>   
                         </tbody>
                     </table>
                 </div>

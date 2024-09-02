@@ -21,7 +21,6 @@ $album = new Album();
                             <label for="Nama">Nama Album</label>
                             <input class="form-control" type="text" name="NamaAlbum" value="<?= $album->NamaAlbum ?>">
                         </div>
-                        
                         <div class="form-group">
                             <label for="">Deskripsi</label>
                             <input class="form-control" type="text" name="Deskripsi" value="<?= $album->Deskripsi  ?>">

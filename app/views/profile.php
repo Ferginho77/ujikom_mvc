@@ -23,9 +23,7 @@ require_once '../controllers/conn.php';
                         $id = $_SESSION['data']['UserId'];
                         $sql = "SELECT * FROM user WHERE UserId = '$id'";
                         $result = mysqli_query($conn->koneksi, $sql);
-                        $data = mysqli_fetch_assoc($result);
-                        // var_dump($data);
-                        
+                        $data = mysqli_fetch_assoc($result);   
                         ?>
                         <div class="mt-3">
                             <p class="font-weight-bold">Username:</p>
@@ -44,10 +42,8 @@ require_once '../controllers/conn.php';
                             <h6 class="text-muted"><?= $data['Alamat'] ?></h6>
                         </div>
                     </div>
-                 
                 </div>
             </div>
         </div>
-
     </div>
 </div>

@@ -16,9 +16,9 @@
     <div class="input">
         <h1>REGISTER</h1>
         <form action="../controllers/c_user.php?aksi=regis" method="POST">
-        <div class="box-input">
-                 <i class="far fa-user"></i>
-                <input type="text" name="Username" placeholder="Username">
+            <div class="box-input">
+                    <i class="far fa-user"></i>
+                    <input type="text" name="Username" placeholder="Username">
             </div>
             <div class="box-input">
                 <i class="fas fa-lock"></i>
@@ -32,14 +32,11 @@
                      <i class="far fa-user"></i>
                 <input type="text" name="NamaLengkap" placeholder="Nama Lengkap">
             </div>
-            
             <div class="box-input">
                  <i class="fas fa-map-marker-alt"></i>
                 <input type="text" name="Alamat" placeholder="Alamat">
             </div>
-          
                 <button type="submit" name="regis" class="btn-input">Register</button>
-            
             <div class="bottom">
                 <p>Sudah punya akun?
                     <a href="login.php">Login disini</a>

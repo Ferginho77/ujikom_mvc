@@ -45,7 +45,7 @@ class Album {
 	}
     public function read_album($UserId){
         $conn = new database();
-		$query = mysqli_query($conn->koneksi, "SELECT * FROM album WHERE UserId = $UserId");
+		$query = mysqli_query($conn->koneksi, "SELECT * FROM album WHERE UserId = $UserId ORDER BY AlbumId DESC");
 		$hasil = [];
 		while ($d = mysqli_fetch_object($query)) {
 			$hasil[] = $d;

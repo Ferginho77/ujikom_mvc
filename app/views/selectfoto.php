@@ -12,7 +12,6 @@ $tampillike = new like();
 
 
 <section>  <?php 
-              
                 if(empty($tampil->read($_SESSION['data']['UserId']))) {
                     echo "<h2>Tidak Ada Foto Yang Di Upload</h2>";
                 } else {
@@ -22,18 +21,15 @@ $tampillike = new like();
         <?php  foreach ($tampil->read($_SESSION['data']['UserId'])as $x ) :  ?>
         <div class="card-body">
             <div class="row tm-mb-90 tm-gallery">
-            <div class="row tm-mb-90 tm-gallery">
-            </div>
-               
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <img src="../../assets/img/<?= $x->LokasiFile ?>" width="280px" height="350px" alt="foto">
-                        <h3><?= $x->JudulFoto ?></h3>
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <p><?= $x->DeskripsiFoto ?></p>
-                         </div>
-                      <a  href="edit_foto.php?FotoId=<?= $x->FotoId; ?>&AlbumId=<?= $x->AlbumId ?>" class="btn btn-warning"><i class="far fa-edit"></i></a>
-                      <a onclick="return confirm('Apakah Yakin Akan hapus?')" href="../controllers/c_foto.php?FotoId=<?= $x->FotoId; ?>&aksi=hapus" class="btn btn-danger" ><i class="far fa-trash-alt"></i></a>
-                </div>   
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                        <img src="../../assets/img/<?= $x->LokasiFile ?>" width="280px" height="350px" alt="foto">
+                                <h3><?= $x->JudulFoto ?></h3>
+                                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                    <p><?= $x->DeskripsiFoto ?></p>
+                                </div>
+                        <a  href="edit_foto.php?FotoId=<?= $x->FotoId; ?>&AlbumId=<?= $x->AlbumId ?>" class="btn btn-warning"><i class="far fa-edit"></i></a>
+                        <a onclick="return confirm('Apakah Yakin Akan hapus?')" href="../controllers/c_foto.php?FotoId=<?= $x->FotoId; ?>&aksi=hapus" class="btn btn-danger" ><i class="far fa-trash-alt"></i></a>
+                    </div>   
                 </div>
         </div>
     </div>

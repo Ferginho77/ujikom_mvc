@@ -6,9 +6,8 @@ class Foto {
     public function TambahFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId) {
      $conn = new database();
      $sql = "INSERT INTO foto VALUES (NULL, '$JudulFoto', '$DeskripsiFoto', '$TanggalUnggah', '$LokasiFile',  '$AlbumId', '$UserId')";
-
      $result = mysqli_query($conn->koneksi, $sql);
-        
+
      $hasil = "SELECT * FROM foto WHERE JudulFoto  = '$JudulFoto'";
      $query = mysqli_query($conn->koneksi, $hasil);
      $cekk = mysqli_fetch_assoc($query);
@@ -21,7 +20,6 @@ class Foto {
     }
 
     }
-
     public function UpdateFoto($FotoId, $JudulFoto, $DeskripsiFoto, $AlbumId, $UserId){
         $conn = new database();
         $sql = "UPDATE foto SET JudulFoto='$JudulFoto', DeskripsiFoto='$DeskripsiFoto',  AlbumId='$AlbumId', UserId='$UserId' WHERE FotoId = $FotoId";
@@ -43,7 +41,7 @@ class Foto {
 	}
    public function tampil_foto(){
     $conn = new database();
-		$data = mysqli_query($conn->koneksi, "SELECT * FROM foto INNER JOIN user ON foto.UserId=user.UserId");
+		$data = mysqli_query($conn->koneksi, "SELECT * FROM foto INNER JOIN user ON foto.UserId=user.UserId ORDER BY FotoId DESC");
         $hasil = [];
 		while ($d = mysqli_fetch_object($data)) {
 			$hasil[] = $d;

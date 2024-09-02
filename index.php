@@ -2,11 +2,8 @@
 session_start();
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +13,6 @@ session_start();
     <script src="https://unpkg.com/feather-icons"></script>
     <title>Login Page</title>
 </head>
-
 <body>
     <div class="input">
         <h1>LOGIN</h1>
@@ -29,9 +25,7 @@ session_start();
                 <i class="fas fa-lock"></i>
                 <input type="password" name="Password" id="id_password"  placeholder="Password"><i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
             </div>
-          
                 <button type="submit" name="login" class="btn-input">Login</button>
-        
             <div class="bottom">
                 <p>Belum punya akun?
                     <a href="../app/views/register.php">Register disini</a>
@@ -45,5 +39,4 @@ session_start();
      <script src="assets/js/login.js">
     </script>
 </body>
-
 </html>

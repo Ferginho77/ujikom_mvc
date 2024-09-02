@@ -1,10 +1,6 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 include_once '../controllers/conn.php';
-
 
 class c_login{
     public function register($Username, $Password, $Email, $NamaLengkap,  $Alamat){
@@ -14,8 +10,8 @@ class c_login{
             $data = mysqli_num_rows($cek);
             if($data > 0){
                 echo "<script> alert('email / username sudah terdaftar');
-//             document.location.href = '../views/register.php';
-//             </script>";
+                      document.location.href = '../views/register.php';
+                     </script>";
             }else{
                 $sql = mysqli_query($conn->koneksi, "INSERT INTO user VALUES (NULL, '$Username', '$Password', '$Email', '$NamaLengkap',  '$Alamat')" );
                 if ($sql) {
@@ -29,14 +25,12 @@ class c_login{
 
 
     public function login($Username=null, $Password=null){
-        
         $conn = new database();
         //untuk mengecek apakah tombol login di tekan, jika di tekan akan menjalankan perintah dibawahnya
         if (isset($_POST['login'])) {
             $sql = "SELECT * FROM user WHERE Username  = '$Username'";
             $result = mysqli_query($conn->koneksi, $sql);
             $data = mysqli_fetch_assoc($result);
-           
             if ($result) {
                if(mysqli_num_rows($result) > 0){
                 if(password_verify($Password, $data['Password'])){
@@ -51,7 +45,6 @@ class c_login{
                     window.location.href='../views/login.php';
                     </script>";
                 }
-                
             }
             }
         }

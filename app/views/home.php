@@ -11,7 +11,6 @@ $tampillike = new like();
 
 ?>
 
-<h1> Selamat Datang <?= $_SESSION['data']['Username'] ?></h1>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -24,7 +23,7 @@ $tampillike = new like();
                         } else {
                          foreach ($fotos as $x) : 
                          ?>  
-                <div class="card mt-2">      
+                <div class="card border-dark mt-2">      
                         <div class="card-header ">
                             <h6>Postingan dari <?= $x->Username ?></h6>
                         <h6 class="position-absolute top-0 end-0"><?= $x->TanggalUnggah ?></h6>
@@ -88,4 +87,3 @@ $tampillike = new like();
     column.style.width = input.value.length + 'ch';
 }
 </script>
-

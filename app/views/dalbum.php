@@ -10,8 +10,7 @@ $album = new Album();
 $tampillike = new like();
 ?>
 
-<section>  <?php 
-              
+<section>  <?php   
                 if(empty($tampil->read_album($_GET['AlbumId']))) {
                     echo "<h2>Tidak Ada Foto Yang Di Upload</h2>";
                 } else {

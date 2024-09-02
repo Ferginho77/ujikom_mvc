@@ -1,12 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    background: url(bgrd.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: sans-serif;
 }
 
 .input {

@@ -24,9 +24,7 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" name="Password" id="id_password"  placeholder="Password"><i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
             </div>
-            
                 <button type="submit" name="login" class="btn-input">Login</button>
-            
             <div class="bottom">
                 <p>Belum punya akun?
                     <a href="register.php">Register disini</a>

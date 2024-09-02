@@ -18,16 +18,13 @@
                         $id = $_SESSION['data']['UserId'];
                         $sql = "SELECT * FROM user WHERE UserId = '$id'";
                         $result = mysqli_query($conn->koneksi, $sql);
-                        $data = mysqli_fetch_assoc($result);
-                        // var_dump($data);
-                        
+                        $data = mysqli_fetch_assoc($result);        
                         ?>
                     <input type="hidden" name="UserId" value="<?= $data['UserId'] ?>">
                         <div class="form-group">
                             <label for="Username">Username</label>
                             <input class="form-control" type="text" name="Username" value="<?= $data['Username'] ?>">
                         </div>
-                        
                         <div class="form-group">
                             <label for="">Email</label>
                             <input class="form-control" type="text" name="Email" value="<?= $data['Email'] ?>">
