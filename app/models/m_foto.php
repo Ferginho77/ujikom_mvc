@@ -71,5 +71,15 @@ class Foto {
        }
        return $hasil;
    }
+
+   public function read_album($album) {
+    $conn = new database();
+    $query = mysqli_query($conn->koneksi, "SELECT * FROM foto WHERE AlbumId = $album");
+    $hasil = [];
+       while ($row = mysqli_fetch_object($query)) {
+           $hasil[] = $row;
+       }
+       return $hasil;
+   }
   
 }

@@ -37,10 +37,10 @@ $tampillike = new like();
                                     <p><?= $x->DeskripsiFoto ?></p>
                                         <div class="align-items-center justify-content-evenly ">
                                             <h6 class="text-secondary"> Like |<?= $tampillike->jumlah($x->FotoId) ?> Komentar | <?= $komentar->jumlah($x->FotoId)?></h6> 
-                                            <?php if ($tampillike->user($x->FotoId, $x->UserId)) { ?>
-                                                <a class="fs-2" href="../controllers/c_like.php?FotoId=<?= $x->FotoId ?>&UserId=<?= $x->UserId ?>&aksi=delete"><i class="fas fa-heart text-danger"></i></a>
+                                            <?php if ($tampillike->user($x->FotoId, $_SESSION['data']['UserId'])) { ?>
+                                                <a class="fs-2" href="../controllers/c_like.php?FotoId=<?= $x->FotoId ?>&UserId=<?= $_SESSION['data']['UserId'] ?>&aksi=delete"><i class="fas fa-heart text-danger"></i></a>
                                             <?php } else { ?>
-                                                <a class="fs-2" href="../controllers/c_like.php?FotoId=<?= $x->FotoId ?>&UserId=<?= $x->UserId ?>&aksi=like"><i class="far fa-heart text-danger"></i></a>
+                                                <a class="fs-2" href="../controllers/c_like.php?FotoId=<?= $x->FotoId ?>&UserId=<?= $_SESSION['data']['UserId']  ?>&aksi=like"><i class="far fa-heart text-danger"></i></a>
                                             <?php } 
                                             if (empty($komentar->read_komentar(($x->FotoId)))){
                                                 echo "";

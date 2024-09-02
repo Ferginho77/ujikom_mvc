@@ -10,16 +10,15 @@ $album = new Album();
 $tampillike = new like();
 ?>
 
-
 <section>  <?php 
               
-                if(empty($tampil->read($_SESSION['data']['UserId']))) {
+                if(empty($tampil->read_album($_GET['AlbumId']))) {
                     echo "<h2>Tidak Ada Foto Yang Di Upload</h2>";
                 } else {
-                ?> 
-                <a href="album.php" class="btn btn-danger">Kembali</a> 
-    <div class="card mt-2">
-        <?php  foreach ($tampil->read($_SESSION['data']['UserId'])as $x ) :  ?>
+                ?>  
+                <a href="album.php" class="btn btn-danger">Kembali</a>
+    <div class="card mt-2">  
+        <?php  foreach ($tampil->read_album($_GET['AlbumId'])as $x ) :  ?>
         <div class="card-body">
             <div class="row tm-mb-90 tm-gallery">
             <div class="row tm-mb-90 tm-gallery">
