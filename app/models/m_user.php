@@ -15,7 +15,7 @@ class c_login{
             }else{
                 $sql = mysqli_query($conn->koneksi, "INSERT INTO user VALUES (NULL, '$Username', '$Password', '$Email', '$NamaLengkap',  '$Alamat')" );
                 if ($sql) {
-                        echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/login.php'</script>";
+                    header("Location: ../../index.php");
                     } else {
                         echo "<script>alert('Data Gagal Ditambah');window.location='../views/register.php'</script>";
                     }
@@ -35,15 +35,9 @@ class c_login{
                if(mysqli_num_rows($result) > 0){
                 if(password_verify($Password, $data['Password'])){
                     $_SESSION["data"] = $data;
-                    echo"<script>
-                    alert('Password Benar');
-                    window.location.href='../views/home.php';
-                    </script>";
+                    header("Location: ../views/home.php");
                 }else{
-                    echo"<script>
-                    alert('Password Salah');
-                    window.location.href='../views/login.php';
-                    </script>";
+                    echo "<script>alert('Password/Username Salah');window.location='../../index.php'</script>";
                 }
             }
             }
@@ -56,11 +50,11 @@ class c_login{
         $result = mysqli_query($conn->koneksi, $sql);
         
         if ($result) {
-            echo "<script>alert('User Berhasil Di edit');window.location='../views/profile.php'</script>";
+            header("Location: ../views/profile.php");
 
         } else {
 
-            echo "Foto gagal ditambahkan";
+             header("Location: ../views/home.php");
         }
     }
 
@@ -81,10 +75,7 @@ class c_login{
         session_destroy();
       
 
-        echo "<script>
-        alert('Logout berhasil');
-        window.location.href='../views/login.php';
-      </script>";
+        header("Location: ../../index.php");
         exit;
     }
 

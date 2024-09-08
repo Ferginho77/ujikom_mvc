@@ -11,27 +11,26 @@ $tampillike = new like();
 
 ?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-             <main class="mt-3">
-                <section>
-                        <?php 
+
+<main>
+                    <?php 
                         $fotos = $tampil->tampil_foto();
                         if (empty($fotos)) {
                          echo "<h2>Tidak Ada Postingan</h2>";
                         } else {
                          foreach ($fotos as $x) : 
                          ?>  
-                <div class="card border-dark mt-2">      
+                <section>
+                      
+                <div class="card border-dark mt-2" data-aos="fade-up">      
                         <div class="card-header ">
-                            <h6>Postingan dari <?= $x->Username ?></h6>
+                            <h6><?= $x->Username ?></h6>
                         <h6 class="position-absolute top-0 end-0"><?= $x->TanggalUnggah ?></h6>
                         </div>
                     <div class="card-body">
                         <div class="row tm-mb-90 tm-gallery">
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                                <img src="../../assets/img/<?= $x->LokasiFile ?>" width="280px" height="350px" alt="foto">
+                                <img src="../../assets/img/<?= $x->LokasiFile ?>" style="width: 100%; height:max-content;" alt="foto">
                                     <h3><?= $x->JudulFoto ?></h3>
                                     <p><?= $x->DeskripsiFoto ?></p>
                                         <div class="align-items-center justify-content-evenly ">
@@ -60,7 +59,7 @@ $tampillike = new like();
                                         <?php endforeach; ?>
                                         <?php }?>
                                     <form class="row g-3 mt-3" action="../controllers/c_komentar.php?aksi=tambah" method="post">
-                                        <div class="d-flex flex-row mb-3">
+                                        <div class="d-flex flex-row mb-3 ml-3">
                                             <input type="text" name="IsiKomentar" class="form-control" placeholder="Beri Komentar" style="width: 200px;" required>
                                             <input type="hidden" name="Userid" value="<?= $x->UserId ?>" >
                                             <input type="hidden" name="FotoId" value="<?= $x->FotoId ?>" >
@@ -71,13 +70,11 @@ $tampillike = new like();
                             </div>
                         </div>
                     </div>
-                <?php endforeach;?>
-                <?php }?>
+                
             </section>
-            </main>
-        </div>
-    </div>
-</div>
+            <?php endforeach;?>
+                <?php }?>
+</main>
 <script>
     function adjustColumnWidth() {
     const input = document.getElementById('textInput');

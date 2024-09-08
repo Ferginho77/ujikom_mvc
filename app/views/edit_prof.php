@@ -1,6 +1,7 @@
 <?php require_once'../../assets/layouts/navbar.php';
  include_once '../controllers/conn.php';
 ?>
+<main>
  <a class="btn text-white bg-danger" href="profile.php">Kembali</a>
      
 <div class="container">
@@ -8,6 +9,7 @@
         <div class="col-5">
             <div class="card">
                 <div class="card-header">
+                    <i class="far fa-user"></i>
                     Edit Profil Anda
                 </div>
                 <div class="card-body">
@@ -44,3 +46,4 @@
         </div>
     </div>
 </div>
+</main>

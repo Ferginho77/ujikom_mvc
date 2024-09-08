@@ -32,7 +32,7 @@ try{
             $result = $album->hapus($AlbumId);
     
             if ($result) {
-                echo "<script>alert('Data Berhasil Dihapus');window.location='../views/album.php'</script>";
+                header("Location: ../views/album.php");
             } else {
                 echo "<script>alert('Data Gagal Dihapus');window.location='../views/album.php'</script>";
             }

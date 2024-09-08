@@ -28,7 +28,7 @@ session_start();
                 <button type="submit" name="login" class="btn-input">Login</button>
             <div class="bottom">
                 <p>Belum punya akun?
-                    <a href="../app/views/register.php">Register disini</a>
+                    <a href="app/views/register.php">Register disini</a>
                 </p>
             </div>
         </form>

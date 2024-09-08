@@ -3,6 +3,7 @@ require_once '../models/m_album.php';
 $conn = new database();
 $tampil = new Album();
 ?>
+<main>
 <div class= "container">
     <div class= "row">
         <div class="col-5">
@@ -40,3 +41,4 @@ $tampil = new Album();
         </div>
     </div>
 </div>
+</main>

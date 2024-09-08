@@ -42,7 +42,7 @@ if ($_GET['aksi'] == 'update') {
             $FotoId = $_GET['FotoId'];
             $result = $foto->hapus($FotoId);
             if ($result) {
-                echo "<script>alert('Data Berhasil Dihapus');window.location='../views/home.php'</script>";
+                header("Location: ../views/home.php");
             } else {
                 echo "<script>alert('Data Gagal Dihapus');window.location='../views/album.php'</script>";
             }

@@ -16,7 +16,7 @@ class Album {
 
         if ($result) {
             $_SESSION["album"] = $cekk;
-            echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/album.php'</script>";
+            header("Location: ../views/album.php");
         } else {
             echo "<script>alert('Data Gagal Ditambah');window.location='../views/album.php'</script>";
         }
@@ -59,7 +59,7 @@ class Album {
         $result = mysqli_query($conn->koneksi, $sql);
     
         if ($result) {
-            echo "<script>alert('Data Berhasil Di Edit');window.location='../views/album.php'</script>";
+            header("Location: ../views/album.php");
         } else {
             echo "<script>alert('Data Gagal Di Edit');window.location='../views/album.php'</script>";
         }
@@ -70,5 +70,6 @@ class Album {
 		$sql = "DELETE FROM album WHERE AlbumId = $AlbumId";
 		$result = mysqli_query($conn->koneksi, $sql);
 		return $result;
+        
 	}
 }

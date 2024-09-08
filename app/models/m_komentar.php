@@ -7,16 +7,7 @@ class komentar {
         $sql = "INSERT INTO komentarfoto  VALUES (NULL, '$FotoId', '$UserId', '$IsiKomentar',  '$TanggalKomentar')";
         
         $result = mysqli_query($conn->koneksi, $sql);
-       
-        $hasil = "SELECT * FROM komentarfoto WHERE IsiKomentar  = '$IsiKomentar'";
-        $query = mysqli_query($conn->koneksi, $hasil);
-        $cekk = mysqli_fetch_assoc($query);
-        
-       
-        if ($result) {
-            $_SESSION["komen"] = $cekk;
-            header("Location: ../views/home.php");
-        }
+
     }
     public function read_komentar($foto)
     {

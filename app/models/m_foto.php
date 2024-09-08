@@ -14,7 +14,7 @@ class Foto {
      
      if ($result) {
         $_SESSION["foto"] = $cekk;
-        echo "<script>alert('foto Berhasil Ditambahkan');window.location='../views/home.php'</script>";
+        header("Location: ../views/home.php");
     } else {
         echo "<script>alert('Data Gagal Ditambah');window.location='../views/uploads.php'</script>";
     }
@@ -27,9 +27,9 @@ class Foto {
         $result = mysqli_query($conn->koneksi, $sql);
        
         if ($result) {
-            echo "<script>alert('Data Berhasil Di Edit');window.location='../views/selectfoto.php'</script>";
+            header("Location: ../views/selectfoto.php");
         } else {
-            echo "<script>alert('Data Gagal Dihapus');window.location='../views/album.php'</script>";
+            echo "<script>alert('Foto Gagal Di Edit');window.location='../views/selectfoto.php'</script>";
         }
     }
   public function hapus($FotoId)

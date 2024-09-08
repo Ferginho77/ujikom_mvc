@@ -1,18 +1,18 @@
 <?php require_once'../../assets/layouts/navbar.php';
 require_once '../controllers/conn.php';
 ?>
-
-<div class="container">
+<main>
+<div class="container" data-aos="fade-left">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10 mt-5 pt-5">
             <div class="row z-depth-3">
-                <div class="col-sm-4 bg-info rounded-left position-relative">
+                <div class="col-sm-4 rounded-left position-relative" style="background-color: #359381 ;">
                     <div class="card-block text-center text-white">
                     
                     <h4><?= $_SESSION['data']['NamaLengkap']?></h4>
                     <i class="far fa-user mt-5 fs-1 position-absolute top-50 start-50 translate-middle"></i>
                     </div>
-                    <a class="btn text-white bg-warning position-absolute top-100 start-50 translate-middle" href="edit_prof.php?id=<?= $_SESSION['data']['UserId']?>">Edit Profile</a>
+                    <a style="background-color: #75ffce ;"  class="btn text-white position-absolute top-100 start-50 translate-middle" href="edit_prof.php?id=<?= $_SESSION['data']['UserId']?>">Edit Profile</a>
                 </div>
                 <div class="col-sm-8 bg-white rounded-right">
                     <h3 class="mt-3 text-center"> Profil Anda</h3>
@@ -47,3 +47,4 @@ require_once '../controllers/conn.php';
         </div>
     </div>
 </div>
+</main>
