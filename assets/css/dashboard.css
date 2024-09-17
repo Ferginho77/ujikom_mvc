@@ -44,6 +44,14 @@ nav {
     height: 80px;
     display: flex;
     align-items: center;
+    padding: 40px 100px;
+    z-index: 100000;
+    transition: 0.6s;
+}
+nav.sticky {
+  padding: 5px 100px;
+  background-color: #F5F7F8;
+  
 }
 
 .navbar-nav a:hover{

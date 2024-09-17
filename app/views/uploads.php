@@ -4,7 +4,7 @@ $conn = new database();
 $tampil = new Album();
 ?>
 <main>
-<div class= "container">
+<div class= "container" data-aos="fade-right">
     <div class= "row">
         <div class="col-5">
             <div class="card">

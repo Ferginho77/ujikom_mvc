@@ -18,7 +18,7 @@ include_once '../../app/controllers/conn.php';
 <body>
 <nav class="navbar navbar-expand-lg fixed-top text-dark p-3">
   <div class="container-fluid">
-    <h6 class="navbar-brand" href="#">SOCIALIX</h6>
+    <h6 class="navbar-brand fw-bolder" href="#">SOCIALIX</h6>
       <div class="navbar-nav ms-auto">
         <a href="../../app/views/home.php">Home</a>
         <a href="../../app/views/album.php">AlbumKu</a>
@@ -63,6 +63,12 @@ include_once '../../app/controllers/conn.php';
       <script>
         AOS.init();
       </script>
+       <script>
+      window.addEventListener("scroll", function () {
+        var navbar = document.querySelector("nav");
+        navbar.classList.toggle("sticky", window.scrollY > 0);
+      });
+    </script>
 <script src="../js/scrool.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

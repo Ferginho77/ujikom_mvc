@@ -12,7 +12,7 @@ require_once '../controllers/conn.php';
                     <h4><?= $_SESSION['data']['NamaLengkap']?></h4>
                     <i class="far fa-user mt-5 fs-1 position-absolute top-50 start-50 translate-middle"></i>
                     </div>
-                    <a style="background-color: #75ffce ;"  class="btn text-white position-absolute top-100 start-50 translate-middle" href="edit_prof.php?id=<?= $_SESSION['data']['UserId']?>">Edit Profile</a>
+                    <a style="background-color: #75ffce ;"  class="btn position-absolute top-100 start-50 translate-middle" href="edit_prof.php?id=<?= $_SESSION['data']['UserId']?>">Edit Profile</a>
                 </div>
                 <div class="col-sm-8 bg-white rounded-right">
                     <h3 class="mt-3 text-center"> Profil Anda</h3>
