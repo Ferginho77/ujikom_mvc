@@ -21,19 +21,40 @@ if(isset($_POST['tambah'])){
     header("Location: ../views/home.php");
 }
 
-if(isset($_GET['aksiSelect'])){
-    $FotoId = $_POST['FotoId'];
-    $UserId = $_SESSION['data']['UserId'];
-    $IsiKomentar = $_POST['IsiKomentar'];
+if (isset($_GET['aksiSelect'])) {
     $aksi = $_GET['aksiSelect'];
     
-    if ($aksi == 'tambahSelect') {
-        $TanggalKomentar = date("Y-m-d");
-        $komentar->insert_komen($FotoId, $UserId, $IsiKomentar, $TanggalKomentar);
-    }elseif ($aksi == 'hapusSelect') {
-        $id = $_GET['KomentarId'];
-        $user = $_SESSION['data']['UserId'];
-        $komentar->delete($id, $user);
+    // Pastikan UserId tersedia di session
+    if (!isset($_SESSION['data']['UserId'])) {
+        header("Location: ../views/login.php"); // Redirect ke halaman login jika user tidak terdeteksi
+        exit;
     }
+
+    $UserId = $_SESSION['data']['UserId'];
+
+    // Logika untuk tambah komentar
+    if ($aksi == 'tambahSelect') {
+        // Pastikan FotoId dan IsiKomentar dikirim melalui POST
+        if (!empty($_POST['FotoId']) && !empty($_POST['IsiKomentar'])) {
+            $FotoId = $_POST['FotoId'];
+            $IsiKomentar = $_POST['IsiKomentar'];
+            $TanggalKomentar = date("Y-m-d");
+
+            // Masukkan komentar ke database
+            $komentar->insert_komen($FotoId, $UserId, $IsiKomentar, $TanggalKomentar);
+        }
+
+    // Logika untuk hapus komentar
+    } elseif ($aksi == 'hapusSelect') {
+        if (!empty($_GET['KomentarId'])) {
+            $KomentarId = $_GET['KomentarId'];
+
+            // Hapus komentar
+            $komentar->delete($KomentarId, $UserId);
+        }
+    }
+
+    // Redirect kembali ke halaman selectfoto
     header("Location: ../views/selectfoto.php");
+    exit;
 }

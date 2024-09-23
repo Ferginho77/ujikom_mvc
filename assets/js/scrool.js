@@ -1,18 +1,4 @@
-const links = document.querySelectorAll('a[href*="#"]');
-
- links.forEach((link) => {
-   link.addEventListener("click", smoothScroll);
- });
-
- function smoothScroll(e) {
-   e.preventDefault(); 
-
-   const targetId = this.getAttribute("href");
-   const targetElement = document.querySelector(targetId);
-
-   if (targetElement) {
-     targetElement.scrollIntoView({
-       behavior: "smooth",
-     });
-   }
- }
+window.addEventListener("scroll", function () {
+  var navbar = document.querySelector("nav");
+  navbar.classList.toggle("sticky", window.scrollY > 0);
+});

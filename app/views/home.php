@@ -13,15 +13,14 @@ $tampillike = new like();
 
 
 <main>
-                    <?php 
+                 <?php 
                         $fotos = $tampil->tampil_foto();
                         if (empty($fotos)) {
                          echo "<h2>Tidak Ada Postingan</h2>";
                         } else {
                          foreach ($fotos as $x) : 
                          ?>  
-                <section>
-                      
+            <section>
                 <div class="card border-dark mt-2" data-aos="fade-up">      
                         <div class="card-header ">
                             <h6><?= $x->Username ?></h6>
@@ -34,7 +33,7 @@ $tampillike = new like();
                                     <h3><?= $x->JudulFoto ?></h3>
                                     <p><?= $x->DeskripsiFoto ?></p>
                                         <div class="align-items-center justify-content-evenly ">
-                                            <h6 class="text-secondary"> Like |<?= $tampillike->jumlah($x->FotoId) ?> Komentar | <?= $komentar->jumlah($x->FotoId)?></h6> 
+                                            <h6 class="text-secondary"> Like <?= $tampillike->jumlah($x->FotoId) ?> | Komentar <?= $komentar->jumlah($x->FotoId)?></h6> 
                                             <?php if ($tampillike->user($x->FotoId, $_SESSION['data']['UserId'])) { ?>
                                                 <a class="fs-2" href="../controllers/c_like.php?FotoId=<?= $x->FotoId ?>&UserId=<?= $_SESSION['data']['UserId'] ?>&aksi=delete"><i class="fas fa-heart text-danger"></i></a>
                                             <?php } else { ?>
@@ -76,11 +75,11 @@ $tampillike = new like();
                 <?php }?>
 </main>
 <script>
-    function adjustColumnWidth() {
-    const input = document.getElementById('textInput');
-    const column = input.parentElement;
+//     function adjustColumnWidth() {
+//     const input = document.getElementById('textInput');
+//     const column = input.parentElement;
 
-    // Mengatur lebar kolom agar sesuai dengan teks yang diinput
-    column.style.width = input.value.length + 'ch';
-}
+//     // Mengatur lebar kolom agar sesuai dengan teks yang diinput
+//     column.style.width = input.value.length + 'ch';
+// }
 </script>

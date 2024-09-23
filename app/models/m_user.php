@@ -26,6 +26,11 @@ class c_login{
 
     public function login($Username=null, $Password=null){
         $conn = new database();
+        if (empty($Username) || empty($Password)) {
+            echo "<script>alert('Username dan Password harus diisi.');window.location='../../index.php'</script>";
+            exit();
+        }
+
         //untuk mengecek apakah tombol login di tekan, jika di tekan akan menjalankan perintah dibawahnya
         if (isset($_POST['login'])) {
             $sql = "SELECT * FROM user WHERE Username  = '$Username'";

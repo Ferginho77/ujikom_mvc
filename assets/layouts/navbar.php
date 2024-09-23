@@ -1,5 +1,9 @@
 <?php 
 include_once '../../app/controllers/conn.php';
+if (!isset($_SESSION["data"])) {
+    header("Location: ../../index.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +12,8 @@ include_once '../../app/controllers/conn.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <link rel="stylesheet" href="/assets/css/dashboard.css">
-    <link rel="icon" href="/assets/img/logo.png">
+    <link rel="stylesheet" href="/ujikom_mvc/assets/css/dashboard.css">
+    <link rel="icon" href="/ujikom_mvc/assets/img/logo.png">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
