@@ -25,13 +25,13 @@ $komentar = new komentar();
 <section>       
     <div class="card" data-aos="fade-up">
         <div class="card-header">
-        <a  href="edit_foto.php?FotoId=<?= $x->FotoId; ?>&AlbumId=<?= $x->AlbumId ?>" class="btn btn-outline-warning"><i class="far fa-edit"></i></a>
-        <a onclick="return confirm('Apakah Yakin Akan hapus?')" href="../controllers/c_foto.php?FotoId=<?= $x->FotoId; ?>&aksi=hapus" class="btn btn-outline-danger" ><i class="far fa-trash-alt"></i></a>
+            <a  href="edit_foto.php?FotoId=<?= $x->FotoId; ?>&AlbumId=<?= $x->AlbumId ?>" class="btn btn-outline-warning"><i class="far fa-edit"></i></a>
+            <a onclick="return confirm('Apakah Yakin Akan hapus?')" href="../controllers/c_foto.php?FotoId=<?= $x->FotoId; ?>&aksi=hapus" class="btn btn-outline-danger" ><i class="far fa-trash-alt"></i></a>
         </div>
         <div class="card-body">
             <div class="row tm-mb-90 tm-gallery">
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <img src="../../assets/img/<?= $x->LokasiFile ?>" width="280px" height="350px" alt="foto">
+                        <img src="../../assets/img/<?= $x->LokasiFile ?>" style="width: 100%; height:max-content;" alt="foto">
                                 <h3><?= $x->JudulFoto ?></h3>
                                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                                     <p><?= $x->DeskripsiFoto ?></p>
@@ -62,13 +62,15 @@ $komentar = new komentar();
                                             </div>
                                         <?php endforeach; ?>
                                         <?php }?>
-                                        <form action="../controllers/c_komentar.php?aksiSelect=tambahSelect" method="post">
-                                        <input type="hidden" name="FotoId" value="<?= $x->FotoId ?>">
-                                        <input type="text" name="IsiKomentar" placeholder="Beri Komentar" required>
-                                        <button class="btn btn-outline-info" type="submit" name="tambah"><i class="fab fa-telegram-plane"></i></button>
-                                    </form>
-                                        </div>
-                                 </div>
+                                        <form class="row g-3 mt-3 p-4" action="../controllers/c_komentar.php?aksiSelect=tambahSelect" method="post">
+                                            <div class="d-flex flex-row mb-3 ml-3">
+                                                <input type="hidden" name="FotoId" value="<?= $x->FotoId ?>">
+                                                <input type="text" class="form-control" name="IsiKomentar" placeholder="Beri Komentar"  style="width: 200px;" required>
+                                                <button class="btn btn-outline-info" type="submit" name="tambah"><i class="fab fa-telegram-plane"></i></button>
+                                            </div>
+                    </div>               </form>
+                </div>
+            </div>
         </div>
     </div>
 </section>

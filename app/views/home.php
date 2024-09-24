@@ -32,6 +32,7 @@ $tampillike = new like();
                                 <img src="../../assets/img/<?= $x->LokasiFile ?>" style="width: 100%; height:max-content;" alt="foto">
                                     <h3><?= $x->JudulFoto ?></h3>
                                     <p><?= $x->DeskripsiFoto ?></p>
+                            </div>
                                         <div class="align-items-center justify-content-evenly ">
                                             <h6 class="text-secondary"> Like <?= $tampillike->jumlah($x->FotoId) ?> | Komentar <?= $komentar->jumlah($x->FotoId)?></h6> 
                                             <?php if ($tampillike->user($x->FotoId, $_SESSION['data']['UserId'])) { ?>
@@ -45,8 +46,9 @@ $tampillike = new like();
                                             <?php foreach ($komentar->read_komentar(($x->FotoId )) as $komen) :
                                                 ?> 
                                         </div>
+                                        
                                             <div class="d-flex p-2 alert alert-dark alert-dismissible fade show w-100 mt-2"  role="alert">
-                                                <div class="d-flex flex-column">
+                                                <div class="d-flex flex-column" >
                                                      <a onclick="return confirm('Apakah Yakin Akan hapus?')"   
                                                         href="../controllers/c_komentar.php?KomentarId=<?= $komen->KomentarId ?>&UserId=<?= $komen->UserId ?>&aksi=hapus">
                                                         <?= isset($_SESSION['data']['UserId']) && $_SESSION['data']['UserId'] == $komen->UserId ? '<i class="fas fa-times text-dark"></i>' : '' ?>
@@ -55,6 +57,7 @@ $tampillike = new like();
                                                     <p style="margin-left: 0 %; display: inline-block; "><?= $komen->IsiKomentar; ?>
                                                 </div>
                                             </div>
+                                           
                                         <?php endforeach; ?>
                                         <?php }?>
                                     <form class="row g-3 mt-3" action="../controllers/c_komentar.php?aksi=tambah" method="post">
@@ -66,7 +69,6 @@ $tampillike = new like();
                                         </div>
                                     </form>
                                 </div>   
-                            </div>
                         </div>
                     </div>
                 
